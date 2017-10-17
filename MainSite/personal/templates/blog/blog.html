@@ -1,0 +1,54 @@
+{% extends 'personal/main.html' %}
+
+{% block content %}
+
+{% include 'personal/includes/navbar.html' %}
+
+
+  <div class="container">
+    <h2 class="card-header display-4 text-center"><i class="ion-person"></i>Blog Posts </h2>
+		<span class="display-6 text-center text-muted">Stories of Development by <a href="https://bootsnipp.com/msurguy" target="_blank"> {{post.authour}}</a>, A Django Quest</span>
+<div class="row p-2">
+  {% for post in object_list %}
+  <div class="col-sm-6 contpost">
+    <div class="row">
+      <div class="col PostTitle">
+        <h4><a href="/blog/{{post.id}}"> {{post.title}}</a></h4>
+        <div class="PostDate"><i class="fa fa-calendar"></i> {{post.date|date:"Y-m-d "}}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <p>
+          {{post.body}}
+        </p>
+        <p><a class="btn btn-sm btn-success" href="#">Read More -></a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center small p-2">
+        <p>
+          <i class="fa fa-user-circle"></i> by <a href="#">{{post.authour}}</a>
+          | <i class="fa fa-comment"></i> <a href="#">3 Comments</a>
+          | <i class="fa fa-share"></i> <a href="#">39 Shares</a>
+          | <i class="fa fa-tags"></i> Genre : <a href="#"><span class="badge badge-info">{{post.genre}}</span></a>
+          <a href="#"><span class="badge badge-info">Bootstrap</span></a>
+          <a href="#"><span class="badge badge-info">UI</span></a>
+          <a href="#"><span class="badge badge-info">growth</span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+</div>
+
+
+{% include 'personal/includes/footer.html' %}
+{% endblock %}
