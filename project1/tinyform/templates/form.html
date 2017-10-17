@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-3 container" style="margin-top:10px">
+
+  <form class="my-ajax-form" method="post" data-url="/save/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="" value="submit" class="btn btn-primary">
+  </form>
+
+  {% endblock content %}
+
+  {% block javascript %}
+
+  <script type="text/javascript">
+
+  </script>
+
+  {% endblock javascript %}
+
+
+</div>
